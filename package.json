@@ -1,0 +1,33 @@
+{
+  "name": "hotel-api",
+  "version": "1.0.0",
+  "description": "API for Hotel",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node --env-file=.env src/app.js",
+    "dev": "node --env-file=.env --watch src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MdzEdgar/hotel-api.git"
+  },
+  "author": "MdzEdgar",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/MdzEdgar/hotel-api/issues"
+  },
+  "homepage": "https://github.com/MdzEdgar/hotel-api#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.3"
+  }
+}
