@@ -3,6 +3,7 @@ const cors = require('cors')
 
 const config = require('../config')
 const PORT = config.port
+const db = require('./utils/database')
 
 const app = express()
 app.disable('x-powered-by')

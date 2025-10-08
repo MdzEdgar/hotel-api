@@ -3,7 +3,7 @@ const config = {
     nodeEnv: process.env.NODE_ENV || 'development',
     db: {
         development: {
-            dialect: process.env.DIALECT,
+            dialect: process.env.DB_DIALECT,
             host: process.env.DB_DEVELOPMENT_HOST,
             port: process.env.DB_DEVELOPMENT_PORT,
             database: process.env.DB_DEVELOPMENT_DATABASE,
@@ -16,7 +16,7 @@ const config = {
             logging: false,
         },
         production: {
-            dialect: process.env.DIALECT,
+            dialect: process.env.DB_DIALECT,
             host: process.env.DB_PRODUCTION_HOST,
             port: process.env.DB_PRODUCTION_PORT,
             database: process.env.DB_PRODUCTION_DATABASE,
@@ -35,7 +35,7 @@ const config = {
             logging: false
         },
         testing: {
-            dialect: process.env.DIALECT,
+            dialect: process.env.DB_DIALECT,
             host: process.env.DB_TESTING_HOST,
             port: process.env.DB_TESTING_PORT,
             database: process.env.DB_TESTING_DATABASE,
