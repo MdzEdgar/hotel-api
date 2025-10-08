@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 
 const config = require('../config')
+const PORT = config.port
 
 const app = express()
 app.disable('x-powered-by')
@@ -12,6 +13,6 @@ app.all('/{*any}', (req, res) => {
     res.status(404).json({message: 'Not Found'})
 })
 
-app.listen(config.port, () => {
-    console.log(`Listening on port ${config.port}`)
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`)
 })
