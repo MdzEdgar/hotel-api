@@ -1,6 +1,7 @@
 const config = {
     port: process.env.APP_PORT || 5000,
     nodeEnv: process.env.NODE_ENV || 'development',
+    jwtSecret: process.env.JWT_SECRET,
     db: {
         development: {
             dialect: process.env.DB_DIALECT,

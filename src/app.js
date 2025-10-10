@@ -3,8 +3,12 @@ const cors = require('cors')
 
 const config = require('../config')
 const PORT = config.port
+
 const db = require('./utils/database')
 const initModels = require('./models/initModels')
+
+const userRouter = require('./users/users.router')
+const authRouter = require('./auth/auth.router')
 
 const app = express()
 
@@ -20,6 +24,9 @@ app.disable('x-powered-by')
 app.use(express.json())
 app.use(cors())
 
+app.use('/api/v1/users', userRouter)
+app.use('/api/v1/auth', authRouter)
+
 app.all('/{*any}', (req, res) => {
     res.status(404).json({message: 'Not Found'})
 })
@@ -27,3 +34,5 @@ app.all('/{*any}', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
 })
+
+module.exports = app
