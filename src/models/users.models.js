@@ -42,6 +42,10 @@ const Users = db.define('users', {
     role: {
         type: DataTypes.ENUM('customer', 'admin', 'superadmin'),
         defaultValue: 'customer'
+    },
+    active: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
     }
 })
 

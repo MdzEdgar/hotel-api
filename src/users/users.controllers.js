@@ -1,5 +1,5 @@
 const Users = require('../models/users.models')
-const { hashPassword } = require('../utils/crypto')
+const {hashPassword} = require("../utils/crypto");
 
 const findAllUsers = async () => {
     const users = await Users.findAll()
@@ -33,9 +33,27 @@ const findUserByPhone = async (phone) => {
     return data
 }
 
+const createUser = async (user) => {
+    const newUser = {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        phone: user.phone,
+        password: hashPassword(user.password),
+        birthday: user.birthday,
+        role: user.role,
+        active: user.active
+    }
+
+    const result = await Users.create(newUser)
+
+    return result
+}
+
 module.exports = {
     findAllUsers,
     findUserById,
     findUserByEmail,
-    findUserByPhone
+    findUserByPhone,
+    createUser
 }
