@@ -2,35 +2,32 @@ const Users = require('../models/users.models')
 const {hashPassword} = require("../utils/crypto");
 
 const findAllUsers = async () => {
-    const users = await Users.findAll()
-    return users
+    return await Users.findAll()
 }
 
 const findUserById = async (id) => {
-    const data = await Users.findOne({
+    if (!id) return null
+    return await Users.findOne({
         where: {
             id: id
         }
     })
-    return data
 }
 
 const findUserByEmail = async (email) => {
-    const data = await Users.findOne({
+    return await Users.findOne({
         where: {
             email: email
         }
     })
-    return data
 }
 
 const findUserByPhone = async (phone) => {
-    const data = await Users.findOne({
+    return await Users.findOne({
         where: {
             phone: phone
         }
     })
-    return data
 }
 
 const createUser = async (user) => {

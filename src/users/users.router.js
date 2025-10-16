@@ -7,12 +7,12 @@ router.route('/')
     .post(userServices.postUser)
 
 router.route('/:id')
-.get(userServices.getUserById)
+    .get(userServices.getUserById)
 
-router.route('/email')
+router.route('/email/:email')
     .get(userServices.getUserByEmail)
 
-router.route('/phone')
+router.route('/phone/:phone')
     .get(userServices.getUserByPhone)
 
 module.exports = router

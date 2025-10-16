@@ -3,9 +3,7 @@ const userControllers = require('./users.controllers')
 const getAllUsers = (req, res) => {
     userControllers.findAllUsers()
         .then(data => {
-            res.status(200).json({
-                data
-            })
+            res.status(200).json(data)
         })
         .catch(err => {
             res.status(400).json({message: 'Bad request.', error: err})
@@ -17,7 +15,7 @@ const getUserById = (req, res) => {
     userControllers.findUserById(id)
         .then(data => {
             if(!data) {
-                return res.status(404).json({message: `User with id: ${id}, not found`})
+                return res.status(404).json({message: 'User not found.'})
             }
             res.status(200).json(data)
         })
@@ -27,10 +25,10 @@ const getUserById = (req, res) => {
 }
 
 const getUserByEmail = (req, res) => {
-    const email = req.query.email
+    const email = req.params.email
     userControllers.findUserByEmail(email)
         .then(data => {
-            if(!data) return res.status(404).json({message: 'User with email not found.'})
+            if(!data) return res.status(404).json({message: 'User not found.'})
             res.status(200).json(data)
         })
         .catch(err => {
@@ -39,10 +37,10 @@ const getUserByEmail = (req, res) => {
 }
 
 const getUserByPhone = (req, res) => {
-    const phone = req.query.phone
+    const phone = req.params.phone
     userControllers.findUserByPhone(phone)
         .then(data => {
-            if(!data) return res.status(404).json({message: 'User with phone not found.'})
+            if(!data) return res.status(404).json({message: 'User not found.'})
             res.status(200).json(data)
         })
         .catch(err => {

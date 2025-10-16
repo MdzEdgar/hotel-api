@@ -2,7 +2,7 @@ const { findUserByEmail, findUserByPhone } = require('../users/users.controllers
 const { comparePassword } = require('../utils/crypto')
 
 const checkUserCredentials = async (email, phone, password) => {
-    let user
+    let user = null
 
     if (email) user = await findUserByEmail(email)
     else if (phone) user = await findUserByPhone(phone)

@@ -1,5 +1,6 @@
 const express = require('express')
 const cors = require('cors')
+const morgan = require('morgan')
 
 const config = require('../config')
 const PORT = config.port
@@ -21,8 +22,10 @@ db.sync()
     .catch(err => console.log(err))
 
 app.disable('x-powered-by')
-app.use(express.json())
 app.use(cors())
+app.use(morgan('dev'))
+app.use(express.json())
+
 
 app.use('/api/v1/users', userRouter)
 app.use('/api/v1/auth', authRouter)
