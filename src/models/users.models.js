@@ -4,7 +4,9 @@ const db = require('../utils/database')
 const Users = db.define('users', {
     id: {
         type: DataTypes.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        notNull: true,
+        autoIncrement: true
     },
     firstName: {
         type: DataTypes.STRING,
@@ -26,15 +28,23 @@ const Users = db.define('users', {
         unique: true,
         index: true,
         validate: {
-            isEmail: true
+            isEmail: true,
+            notEmpty: true
         }
     },
     phone: {
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        index: true,
+        validate: {
+            notEmpty: true,
+            isNumeric: true
+        }
     },
     password: {
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.TEXT,
+        allowNull: false,
     },
     birthday: {
         type: DataTypes.DATEONLY

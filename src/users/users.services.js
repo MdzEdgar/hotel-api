@@ -51,8 +51,11 @@ const getUserByPhone = (req, res) => {
 const postUser = (req, res) => {
     const userData = req.body
     userControllers.createUser(userData)
-        .then(data => res.status(201).json(data))
-        .catch(err => res.status(400).json({message: 'Bad request', err: err.message}))
+        .then(data => res.status(201).json({message: 'User created.'}))
+        .catch((err) => {
+            console.log(err)
+            res.status(400).json({message: 'Bad request', error: err})
+        })
 }
 
 module.exports = {

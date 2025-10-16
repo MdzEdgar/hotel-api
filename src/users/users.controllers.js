@@ -42,9 +42,7 @@ const createUser = async (user) => {
         active: user.active
     }
 
-    const result = await Users.create(newUser)
-
-    return result
+    await Users.create(newUser)
 }
 
 module.exports = {
