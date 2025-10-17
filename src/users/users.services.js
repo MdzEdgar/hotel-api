@@ -48,14 +48,11 @@ const getUserByPhone = (req, res) => {
         })
 }
 
-const postUser = (req, res) => {
+const saveUser = (req, res) => {
     const userData = req.body
     userControllers.createUser(userData)
-        .then(data => res.status(201).json({message: 'User created.'}))
-        .catch((err) => {
-            console.log(err)
-            res.status(400).json({message: 'Bad request', error: err})
-        })
+        .then(() => res.status(201).json({message: 'User created.'}))
+        .catch((err) => res.status(400).json({message: 'Bad request', error: err}))
 }
 
 module.exports = {
@@ -63,5 +60,5 @@ module.exports = {
     getUserById,
     getUserByEmail,
     getUserByPhone,
-    postUser
+    saveUser
 }

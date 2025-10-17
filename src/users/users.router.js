@@ -4,7 +4,7 @@ const userServices = require('./users.services')
 
 router.route('/')
     .get(userServices.getAllUsers)
-    .post(userServices.postUser)
+    .post(userServices.saveUser)
 
 router.route('/:id')
     .get(userServices.getUserById)
