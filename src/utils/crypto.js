@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt')
+const crypto = require('crypto')
 
 const hashPassword = (plainPassword) => {
     const data = bcrypt.hashSync(plainPassword, 10)
@@ -10,7 +11,12 @@ const comparePassword = (plainPassword, hashedPassword) => {
     return data
 }
 
+const generateRandomToken = (length = 32) => {
+    return crypto.randomBytes(length).toString('hex')
+}
+
 module.exports = {
     hashPassword,
-    comparePassword
+    comparePassword,
+    generateRandomToken
 }
