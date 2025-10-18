@@ -1,6 +1,8 @@
 const router = require('express').Router()
-const login = require('./auth.services')
+const authServices = require('./auth.services')
 
-router.post('/login', login)
+router.post('/login', authServices.login)
+
+router.post('/register', authServices.register)
 
 module.exports = router
