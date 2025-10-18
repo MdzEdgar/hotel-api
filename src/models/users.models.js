@@ -9,21 +9,21 @@ const Users = db.define('users', {
         autoIncrement: true
     },
     firstName: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
         validate: {
             len: [3, 255]
         }
     },
     lastName: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
         validate: {
             len: [3, 255]
         }
     },
     email: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
         unique: true,
         index: true,
@@ -47,14 +47,17 @@ const Users = db.define('users', {
         allowNull: false,
     },
     birthday: {
-        type: DataTypes.DATEONLY
+        type: DataTypes.DATEONLY,
+        allowNull: false
     },
     role: {
         type: DataTypes.ENUM('customer', 'admin', 'superadmin'),
+        allowNull: false,
         defaultValue: 'customer'
     },
     active: {
         type: DataTypes.BOOLEAN,
+        allowNull: false,
         defaultValue: false
     }
 })
